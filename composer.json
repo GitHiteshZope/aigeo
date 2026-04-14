@@ -1,0 +1,53 @@
+{
+    "name": "hszope/laravel-aigeo",
+    "description": "Generative Engine Optimization (GEO) for Laravel — get your products surfaced inside AI-generated answers from ChatGPT, Gemini, Perplexity and more.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "seo", "geo", "ai", "llm", "schema", "json-ld", "ecommerce", "chatgpt", "gemini", "perplexity"],
+    "authors": [
+        {
+            "name": "Hitesh Zope",
+            "email": "hszope@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hszope\\LaravelAigeo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hszope\\LaravelAigeo\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hszope\\LaravelAigeo\\GeoServiceProvider"
+            ],
+            "aliases": {
+                "Geo": "Hszope\\LaravelAigeo\\Facades\\Geo"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

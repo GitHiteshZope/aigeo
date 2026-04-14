@@ -1,0 +1,12 @@
+/vendor/
+/.idea/
+/.vscode/
+/.env
+/node_modules/
+*.log
+.phpunit.cache/
+.phpunit.result.cache
+/public/llms.txt
+/public/llms-full.txt
+/public/ai-product-feed.json
+/public/ai-sitemap.xml
