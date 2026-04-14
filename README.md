@@ -17,6 +17,22 @@ Search is shifting from a list of blue links to direct, generated answers. AI an
 6.  **Visual Dashboard**: A beautiful, premium interface to manage and audit your GEO performance.
 7.  **Blade Components**: Simple tools to integrate GEO features into your existing views.
 
+## Dashboard Preview
+
+![Overview](art/overview.png)
+
+<p align="center">
+  <img src="art/models.png" width="45%" />
+  <img src="art/schema.png" width="45%" />
+</p>
+<p align="center">
+  <img src="art/llms.png" width="45%" />
+  <img src="art/feed.png" width="45%" />
+</p>
+<p align="center">
+  <img src="art/settings.png" width="90%" />
+</p>
+
 ## Requirements
 
 - PHP 8.2+
