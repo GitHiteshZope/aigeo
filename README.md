@@ -44,7 +44,7 @@ Search is shifting from a list of blue links to direct, generated answers. AI an
 composer require hszope/laravel-aigeo
 ```
 
-Publish the config, migrations, and assets:
+Publish the config and database migrations with the package tags:
 
 ```bash
 php artisan vendor:publish --tag="laravel-aigeo-config"

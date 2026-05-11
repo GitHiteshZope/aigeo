@@ -29,6 +29,8 @@ class GeoServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        $this->registerPublishTags();
+
         // Register Blade component
         $this->app['blade.compiler']->component('geo-head', GeoHead::class);
 
@@ -54,5 +56,31 @@ class GeoServiceProvider extends PackageServiceProvider
         $this->app->singleton('geo.citation', fn() => new Modules\Citation\CitationEngine());
         $this->app->singleton('geo.llms',     fn() => new Modules\LlmsTxt\LlmsTxtGenerator());
         $this->app->singleton('geo.feed',     fn() => new Modules\Feed\ProductFeedGenerator());
+    }
+
+    protected function registerPublishTags(): void
+    {
+        if (! $this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->publishes([
+            $this->package->basePath('/../config/geo.php') => config_path('geo.php'),
+        ], 'laravel-aigeo-config');
+
+        $this->publishes([
+            $this->package->basePath('/../database/migrations/create_geo_settings_table.php.stub') => $this->migrationDestinationPath(),
+        ], 'laravel-aigeo-migrations');
+    }
+
+    protected function migrationDestinationPath(): string
+    {
+        $existingMigrations = glob(database_path('migrations/*_create_geo_settings_table.php')) ?: [];
+
+        if ($existingMigrations !== []) {
+            return $existingMigrations[0];
+        }
+
+        return database_path('migrations/' . date('Y_m_d_His') . '_create_geo_settings_table.php');
     }
 }
